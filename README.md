@@ -165,10 +165,10 @@ Next, create a 'PodFile' to declare the dependency:
     xcodeproj 'YourProjectName.xcodeproj'
     platform :ios, '8.0'
 
-    pod 'Starscream', :git => "https://github.com/danbev/starscream-ios.git", :branch => "cocoapods"
+    pod 'Starscream', :git => "https://github.com/danbev/starscream.git", :branch => "cocoapods"
 
     target 'YourProjectNameTests' do
-        pod 'Starscream', :git => "https://github.com/danbev/starscream-ios.git", :branch => "cocoapods"
+        pod 'Starscream', :git => "https://github.com/danbev/starscream.git", :branch => "cocoapods"
     end
 
 Then run:
