@@ -141,6 +141,41 @@ socket.delegate = self
 socket.connect()
 ```
 
+### [CocoaPods](http://cocoapods.org/) support
+While CocoaPods support for Swift project have are not final yet it is possible possible to start using it already by following 
+the steps in this [blog](http://swiftwala.com/cocoapods-is-ready-for-swift/).
+
+To use Starscream in your project add the following 'GemFile'
+
+    source 'https://rubygems.org'
+
+    gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git', :branch => 'swift'
+    gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git'
+    gem 'xcodeproj',  :git => 'https://github.com/CocoaPods/Xcodeproj.git'
+    gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git'
+
+Then run:
+
+    bundle install
+
+Next, create a 'PodFile' to declare the dependency:
+
+    source 'https://github.com/CocoaPods/Specs.git'
+
+    xcodeproj 'YourProjectName.xcodeproj'
+    platform :ios, '8.0'
+
+    pod 'Starscream', :git => "https://github.com/danbev/starscream-ios.git", :branch => "cocoapods"
+
+    target 'YourProjectNameTests' do
+        pod 'Starscream', :git => "https://github.com/danbev/starscream-ios.git", :branch => "cocoapods"
+    end
+
+Then run:
+
+    bundle exec pod install
+
+
 ## Example Project
 
 Check out the SimpleTest project in the examples directory to see how to setup a simple connection to a WebSocket server.
